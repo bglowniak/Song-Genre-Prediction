@@ -1,0 +1,20 @@
+Cleared atypical/erroneous genres:
+Anime
+A Capella
+Children's Music
+Movie
+Soundtrack
+Ska
+Comedy
+Opera
+Reggaeton
+Blues
+World
+
+Replaced Mode:
+Minor = 0
+Major = 1
+
+Normalized Tempo and Loudness
+
+Fixed some encodings
