@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Project Title Placeholder</title>
+    <title>Song Genre Prediction</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.gatech.edu/bglowniak3/ML-Project">View on GitHub</a>
 
-          <h1 id="project_title">Project Title Placeholder</h1>
+          <h1 id="project_title">Song Genre Prediction</h1>
           <h2 id="project_tagline"></h2>
 
         </header>
@@ -29,16 +29,31 @@
       <section id="main_content" class="inner">
         <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
-<p>Was the motivation clear?
-What is the problem?
-Why is it important and why we should care?</p>
+<p>For our project, we wanted to take data from a set of songs, and then use those songs' features to predict their genre. With the rise of digital streaming in the past decade, accessibility to music has increased drastically and in return so has the demand for people to explore music similar to what they already like. An accurate genre predictor for songs is crucial for music distributing sites such as Spotify, Apple Music, and Amazon Music. Thus, we aim to create an algorithm using K Means and Linear/Logistic Regression to predict which song a genre belongs to.</p>
+<img src="images/genre_map.png" alt="Genre Map" style="width:540px;height:294px;">
 <h3>
 <a id="data" class="anchor" href="#data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data</h3>
-<p>How did you get your dataset?
-What are its characteristics (e.g. number of features, # of records, temporal or not, etc.)</p>
+<p>Our dataset is a collection of 232,725 songs pulled from Spotify's API with a total of 26 different genres and 18 features. We downloaded the dataset from Kaggle. Also, we ended up removing tracks from 11 different genres as we deemed many of the songs in those genres to have been erroneously classified and were detrimental to the overall dataset. Thus, we ended up with 132,097 tracks assigned to 15 genres. The genres included were Country, Dance, Alternative, Electronic, Folk, Hip-Hop, Indie, R&B, Classical, Rap, Raggae, Pop, Rock, and Soul. Out of the 17 other features, we only chose to use 8 as we found the others to either be poor predictors for any genre or inconsequential data like a track's id or URI:
+  <ul>
+<!--     <li>Key: The key of the track using Pitch Class Notation (0=C, 1=C#, etc)</li>
+    <li>Mode: Mode of the track (0=Minor, 1=Major)</li>
+    <li>Time_Signature: How many beats in each measure</li> -->
+    <li>Acousticness: Confidence from 0.0 to 1.0 of whether the track is acoustic</li>
+    <li>Danceability: How suitable a track is for dancing from 0.0 to 1.0</li>
+    <li>Energy: How energetic a track is from 0.0 to 1.0</li>
+    <li>Instrumentalness: Predicts whether a track contains no vocals from 0.0 to 1.0</li>
+    <li>Liveness: Detects likelihood of an audience in recording from 0.0 to 1.0</li>
+    <!-- <li>Loudness: Average loudness of a track in decibels (dB)</li> -->
+    <li>Speechiness: Detects presence of spoken words w/o instrumentals from 0.0 to 1.0</li>
+    <li>Valence: Measure from 0.0 to 1.0 of the positivity conveyed by a track</li>
+    <li>Tempo: Overall estimated tempo in beats per minutes (BPM)</li>
+  </ul>
+</p>
+<img src="images/Feature_Data.png" alt="Distribution of Feature Scores">
 <h3>
 <a id="approachexperimentsresults" class="anchor" href="#approachexperimentsresults" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Approach/Experiments/Results</h3>
-<p>Why do you think your approach can effectively solve your problem?
+<p>To start, we decided to use K Means as a way to determine which features were stronger predictors than others. This was originally how we were able to eliminate certain features like Loudness and Time Signature from the dataset. Then, we used the Elbow Rule to find the opitmal number of clusters in K Means, which was 9.
+  Why do you think your approach can effectively solve your problem?
 What is new in your approach?
 Were the experiments, results, and conclusion satisfactory?
 How did you evaluate your approach?
