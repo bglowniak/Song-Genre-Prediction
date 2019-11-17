@@ -33,11 +33,11 @@
 <img src="images/genre_map.png" alt="Genre Map" style="width:540px;height:294px;">
 <h3>
 <a id="data" class="anchor" href="#data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Data</h3>
-<p>Our dataset is a collection of 232,725 songs pulled from Spotify's API with a total of 26 different genres and 18 features. We downloaded the dataset from Kaggle. Also, we ended up removing tracks from 11 different genres as we deemed many of the songs in those genres to have been erroneously classified and were detrimental to the overall dataset. Thus, we ended up with 132,097 tracks assigned to 15 genres. The genres included were Country, Dance, Alternative, Electronic, Folk, Hip-Hop, Indie, R&B, Classical, Rap, Raggae, Pop, Rock, and Soul. Out of the 17 other features, we only chose to use 8 as we found the others to either be poor predictors for any genre or inconsequential data like a track's id or URI:
+<p>Our dataset is a collection of 232,725 songs pulled from Spotify's API with a total of 26 different genres and 18 features. We downloaded the dataset from Kaggle. Also, we ended up removing tracks from 12 different genres as we deemed many of the songs in those genres to have been erroneously classified and were detrimental to the overall dataset. Thus, we ended up with 132,097 tracks assigned to 14 genres. The genres included were Country, Dance, Alternative, Electronic, Folk, Hip-Hop, Indie, R&B, Classical, Rap, Raggae, Pop, Rock, and Soul. Out of the 17 other features, we only chose to use 10 as we found the others to either be poor predictors for any genre or inconsequential data like a track's id or URI:
   <ul>
-<!--     <li>Key: The key of the track using Pitch Class Notation (0=C, 1=C#, etc)</li>
+    <li>Key: The key of the track using Pitch Class Notation (0=C, 1=C#, etc)</li>
     <li>Mode: Mode of the track (0=Minor, 1=Major)</li>
-    <li>Time_Signature: How many beats in each measure</li> -->
+<!--     <li>Time_Signature: How many beats in each measure</li> -->
     <li>Acousticness: Confidence from 0.0 to 1.0 of whether the track is acoustic</li>
     <li>Danceability: How suitable a track is for dancing from 0.0 to 1.0</li>
     <li>Energy: How energetic a track is from 0.0 to 1.0</li>
@@ -52,7 +52,34 @@
 <img src="images/Feature_Data.png" alt="Distribution of Feature Scores">
 <h3>
 <a id="approachexperimentsresults" class="anchor" href="#approachexperimentsresults" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Approach/Experiments/Results</h3>
-<p>To start, we decided to use K Means as a way to determine which features were stronger predictors than others. This was originally how we were able to eliminate certain features like Loudness and Time Signature from the dataset. Then, we used the Elbow Rule to find the opitmal number of clusters in K Means, which was 9.
+<p>For supervised learning, we ran four different algorithms to see if we can predict a track's genre with the following scores:
+  <ul>
+    <li>Linear Regression: 0.081</li>
+    <li>Logistic Regression: 0.310</li>
+    <li>Decision Tree: 0.242</li>
+    <li>Random Forest: 0.362</li>
+  </ul>
+For unsupervised learning, we intended to analyze the performance of each feature in the dataset. First we used Select K Best to score each of the used features:
+  <ul>
+    <li>Acousticness: 0.224</li>
+    <li>Danceability: 0.180</li>
+    <li>Energy: 0.207</li>
+    <li>Instrumentalness: 0.146</li>
+    <li>Key: 0.0006</li>
+    <li>Liveness: 0.007</li>
+    <li>Mode: 0.015</li>
+    <li>Speechiness: 0.111</li>
+    <li>Tempo: 0.014</li>
+    <li>Valence: 0.095</li>
+  </ul>
+Then, we applied KMeans to the dataset. After running the Elbow Method on the data, we found 8 clusters to be optimal:</p>
+<img src="images/elbow.png" alt="KMeans Graph" style="width:399px;height:221px;">
+<p> We then ran KMeans twice, once on with 8 clusters and once with 14 clusters.</p>
+<p>With 8 clusters:</p>
+<img src="images/KMeans_8.png" alt="KMeans Graph" style="width:330px;height:314px;">
+<p>With 12 clusters:</p>
+<img src="images/KMeans_12.png" alt="KMeans Graph" style="width:330px;height:314px;">
+<p>
   Why do you think your approach can effectively solve your problem?
 What is new in your approach?
 Were the experiments, results, and conclusion satisfactory?
