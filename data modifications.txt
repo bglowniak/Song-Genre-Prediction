@@ -15,6 +15,6 @@ Replaced Mode:
 Minor = 0
 Major = 1
 
-Normalized Tempo and Loudness
+Normalized Tempo
 
 Fixed some encodings
