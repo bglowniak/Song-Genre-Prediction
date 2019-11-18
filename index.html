@@ -35,7 +35,9 @@
           Introduction
         </h3>
         <p>With the rise of digital streaming in the past decade, accessibility to music has increased drastically and in return so has the demand for people to explore music similar to what they already like. An accurate genre predictor for songs is crucial for music distributing sites such as Spotify, Apple Music, and Amazon Music. For our project, we wanted to explore what features are important when classifying the genre of a song as well as whether it is possible to predict the genre of a song. In the first part of our project, we used supervised learning algorithms to attempt to predict the genre of a song based on the features available to us. In the second part of our project, we used unsupervised learning to create our own clusters of songs defined solely with respect to our features rather than on the existing genre labels.</p>
-        <img src="https://drive.google.com/open?id=1sbLZROF_2SRCYFzMQf4BuvRj4UPdyVlu" alt="Genre Map" style="width:540px;height:294px;display:block;margin:auto;">
+
+        <a href="https://drive.google.com/uc?export=view&id=1sbLZROF_2SRCYFzMQf4BuvRj4UPdyVlu"><img src="https://drive.google.com/uc?export=view&id=1sbLZROF_2SRCYFzMQf4BuvRj4UPdyVlu" style="width: 540px; height: 294px; display:block;margin:auto;" title="Click for the larger version." /></a>
+
         <p style="text-align:center;font-size:12px;font-style:italic;">So many specific genres to choose from. What separates the basics? Credit: Yash Dua</p>
 
         <h3>
@@ -74,7 +76,8 @@
           <li><strong>Neural Network:</strong> 0.3438</li>
         </ul>
 
-        <img src="https://drive.google.com/open?id=1sdXeWk44rJK--tUXjMRXMqrL9baojVYe" alt="Supervised Learning Scores" style="width:425px;height:275px;display:block;margin:auto;">
+        <a href="https://drive.google.com/uc?export=view&id=1sdXeWk44rJK--tUXjMRXMqrL9baojVYe"><img src="https://drive.google.com/uc?export=view&id=1sdXeWk44rJK--tUXjMRXMqrL9baojVYe" style="width:425px;height:275px;display:block;margin:auto;" title="Click for the larger version." /></a>
+
         <p style="text-align:center;font-size:12px;font-style:italic;">Accuracy scores for the five supervised learning algorithms</p>
 
         <p>The best classifier out of the five we tried was Random Forest, but even that did not have a very good accuracy (~36%). The takeaway here is that classifying genres is apparently much more complex than using features like acousticness, danceability, etc. This intuitively makes sense - to further increase accuracy, we would need to introduce features like chord progressions and lyrical analyses.
@@ -91,18 +94,20 @@
 
         <p>First, we analyzed the importance of each feature in the data set when classifying. To do so, we used Select K Best to score each:</p>
 
-        <img src="https://drive.google.com/open?id=1p-miQLC7UG3GRWQHQ5XtLA0sfxbq3jhA" alt="Feature Scores" style="width:392px;height:251px;display:block;margin:auto;">
+        <a href="https://drive.google.com/uc?export=view&id=1p-miQLC7UG3GRWQHQ5XtLA0sfxbq3jhA"><img src="https://drive.google.com/uc?export=view&id=1p-miQLC7UG3GRWQHQ5XtLA0sfxbq3jhA" style="width:392px;height:251px;display:block;margin:auto;" title="Click for the larger version." /></a>
+
         <p style="text-align:center;font-size:12px;font-style:italic;">Scores from SelectKBest for each feature</p>
 
         <p>Using the default score function (f_classif), we see that Acousticness, Energy, and Danceability are the three most important features. Key, Liveness, Tempo, and Mode are barely influential, if at all.</p>
 
         <p>The next step is to begin defining our own genre clusters using KMeans. First, we use the elbow method to determine the optimal number of clusters given our data.</p>
-        <img src="https://drive.google.com/open?id=1zszPElkiqUyZoaxR-7nkJY2iOw2_CZyy" alt="KMeans Graph" style="width:488px;height:344px;display:block;margin:auto;">
+
+        <a href="https://drive.google.com/uc?export=view&id=1zszPElkiqUyZoaxR-7nkJY2iOw2_CZyy"><img src="https://drive.google.com/uc?export=view&id=1zszPElkiqUyZoaxR-7nkJY2iOw2_CZyy" style="width:488px;height:344px;display:block;margin:auto;" title="Click for the larger version." /></a>
 
         <p>The loss begins to level out around 7-10 clusters. We choose 7 as our optimal cluster number, but a case could be made for 8 clusters as well.</p>
 
         <p>With 7 clusters:</p>
-        <img src="https://drive.google.com/open?id=1AEsRk-ky6g_MZvHHjq8Bg8XuGCN26wjr" alt="KMeans 7 HeatMap" style="width:354px;height:330px;display:block;margin:auto;">
+        <a href="https://drive.google.com/uc?export=view&id=1AEsRk-ky6g_MZvHHjq8Bg8XuGCN26wjr"><img src="https://drive.google.com/uc?export=view&id=1AEsRk-ky6g_MZvHHjq8Bg8XuGCN26wjr" style="width:354px;height:330px;display:block;margin:auto;" title="Click for the larger version." /></a>
 
         <p>Each row of the above heat map corresponds to a cluster. Using the values of each center, we can create seven classifications with respect to the actual features instead of specific genre definitions.</p>
 
@@ -125,16 +130,17 @@
         <p>Next, we ran KMeans with the same number of clusters as genres in our original data set (14). This is mostly just for the sake of comparison.</p>
 
         <p>With 14 clusters:</p>
-        <img src="https://drive.google.com/open?id=1Tp49-38qve3ZIbLT6vTxbMFePzv6iz6P" alt="KMeans 14 HeatMap" style="width:354px;height:330px;display:block;margin:auto;">
+        <a href="https://drive.google.com/uc?export=view&id=1Tp49-38qve3ZIbLT6vTxbMFePzv6iz6P"><img src="https://drive.google.com/uc?export=view&id=1Tp49-38qve3ZIbLT6vTxbMFePzv6iz6P" style="width:354px;height:330px;display:block;margin:auto;" title="Click for the larger version." /></a>
 
         <p>Lastly, we will use PCA to show that defining our own clusters with KMeans results in better clustering than using the predefined genre labels. We reduce our features to 2 components with PCA, then plot with colors first based on our genre labels, and then based on our optimal KMeans clusters.</p>
 
         <p>First, we plot the two PCA components with each song colored according to its labeled genre. It is clear that the true genre labels don't do a very good job of clustering the songs</p>
-        <img src="https://drive.google.com/open?id=1CsXLSo7NWkLFXJRwGaLC982Ikz4jNceW" alt="PCA True Labels" style="width:548px;height:452px;display:block;margin:auto;">
+
+        <a href="https://drive.google.com/uc?export=view&id=1CsXLSo7NWkLFXJRwGaLC982Ikz4jNceW"><img src="https://drive.google.com/uc?export=view&id=1CsXLSo7NWkLFXJRwGaLC982Ikz4jNceW" style="width:548px;height:452px;display:block;margin:auto;" title="Click for the larger version." /></a>
 
         <p>Next, we plot the two PCA components with each song colored according to its cluster defined by our optimal KMeans. It is clear that the songs are much more tightly clustered when done so this way. This shows that the features provided by our data set aren't effective in classifying by the strict predefined genres, but they can be used to define new types of "genres" characterized more by the intrinsic features of a song. One could go through and assign more specific labels based on the feature values listed.</p>
 
-        <img src="https://drive.google.com/open?id=1Buf_es3itcUON5M_vFopx0hAyU4C584q" alt="PCA Optimal Labels" style="width:600px;height:394px;display:block;margin:auto;">
+        <a href="https://drive.google.com/uc?export=view&id=1Buf_es3itcUON5M_vFopx0hAyU4C584q"><img src="https://drive.google.com/uc?export=view&id=1Buf_es3itcUON5M_vFopx0hAyU4C584q" style="width:600px;height:394px;display:block;margin:auto;" title="Click for the larger version." /></a>
 
         <h3>
           <a id="conclusionfuture-work" class="anchor" href="#conclusionfuture-work" aria-hidden="true">
